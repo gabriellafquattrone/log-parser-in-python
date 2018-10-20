@@ -40,4 +40,5 @@ for arr2 in pamArr: # the unchecked PAM lines
             ipDict[ipAdr] = int(pamDigit[1])
 print counter
 print ipDict
-print max(ipDict.iteritems(), key=operator.itemgetter(1))[0]
+print max(ipDict.iteritems(), key=operator.itemgetter(1))[0] 
+# For help: https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary/1234
