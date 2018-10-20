@@ -1,5 +1,5 @@
 import operator
-filename = "SSH.log"
+filename = "SSH.log" # Not attached online, try supplying your own :)
 file = open(filename, "r")
 
 ipDict = {}
@@ -9,15 +9,15 @@ users = []
 ipArray = []
 counter = 0
 for line in file: # parse each line
-    invUsr = line.find('Invalid user ') # grab an invalid user line
-    addAttempt = line.find('PAM ') # this returns an index, grab additional attempts
-    if (invUsr != -1) and (invUsr not in getUser): # get the attempts
-        getUser.append(line[invUsr:]) # showing the unique users
+    invUsr = line.find('Invalid user ') # You can use this to grab certain lines in SSH logs
+    addAttempt = line.find('PAM ') # You can also use this line for the same purpose
+    if (invUsr != -1) and (invUsr not in getUser): 
+        getUser.append(line[invUsr:]) # Showing unique users for particular SSH.log
         for arr in getUser:
             splitUp = arr.split(None, 5)
             if splitUp[2] not in users:
                 users.append(splitUp[2])
-                ipArray.append(splitUp[4]) # prints the ip addresses
+                ipArray.append(splitUp[4]) 
                 ipAdr0 = splitUp[4]
                 if ipAdr0 in ipDict:
                     ipDict[ipAdr0] += 1
